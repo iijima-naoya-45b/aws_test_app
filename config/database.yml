@@ -17,7 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
+  host: <%= Rails.application.credentials.production[:MYAPP_DATABASE_HOST] %>
   username: user
   password: pass
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -85,5 +85,4 @@ production:
   database: <%= Rails.application.credentials.production[:MYAPP_DATABASE_NAME] %>
   username: <%= Rails.application.credentials.production[:MYAPP_DATABASE_USERNAME] %>
   password: <%= Rails.application.credentials.production[:MYAPP_DATABASE_PASSWORD] %>
-  host: <%= Rails.application.credentials.production[:MYAPP_DATABASE_HOST] %>
 
